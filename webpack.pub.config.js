@@ -41,7 +41,12 @@ module.exports = {
     //   'process.env.NODE_ENV': '"production"'
     // }),
     new ExtractTextPlugin("css/styles.css"), // to extrac css
-    new OptimizeCssAssetsPlugin()// to compress css
+    new OptimizeCssAssetsPlugin(), // to compress css
+    new webpack.DefinePlugin({ // for client side variables
+      'process.env': {
+        API_KEY: process.env.API_KEY
+      }
+    })
   ],
   module: {
     rules: [
